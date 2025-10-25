@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f2f4f7;
+    color: #222;
+}
+
+header {
+    background: white;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    height: calc(100vh - 100px);
+}
+
+.sidebar {
+    background: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    color: #1a73e8;
+}
+
+#inputs label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+#inputs input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.2s;
+}
+
+#inputs input:focus {
+    border-color: #1a73e8;
+}
+
+.buttons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #155ab6;
+}
+
+.results {
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.map-section {
+    position: relative;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    background: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,12 @@
+body{margin:0;font-family:Poppins,sans-serif;background:#f2f4f7;}
+header{background:white;padding:15px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+nav ul{display:flex;list-style:none;gap:20px;padding:0;}
+nav a{text-decoration:none;color:#1a73e8;font-weight:600;}
+nav a.active{color:#155ab6;}
+.dashboard-container{padding:20px;}
+.cards{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px;}
+.card{flex:1;min-width:150px;background:white;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.charts{background:white;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);margin-bottom:20px;}
+.activity-feed{background:white;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.activity-feed ul{list-style:none;padding:0;}
+.activity-feed li{padding:5px 0;border-bottom:1px solid #eee;}

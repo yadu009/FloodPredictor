@@ -1,0 +1,11 @@
+body{margin:0;font-family:Poppins,sans-serif;background:#f2f4f7;}
+header{background:white;padding:15px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+nav ul{display:flex;list-style:none;gap:20px;padding:0;}
+nav a{text-decoration:none;color:#1a73e8;font-weight:600;}
+nav a.active{color:#155ab6;}
+.contact-container{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px;}
+.contact-form, .contact-info{background:white;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.contact-form input, .contact-form textarea{width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;}
+.contact-form button{padding:10px;background:#1a73e8;color:white;border:none;border-radius:6px;cursor:pointer;}
+.contact-form button:hover{background:#155ab6;}
+.map-placeholder{height:200px;background:#e0e0e0;border-radius:6px;margin-top:10px;display:flex;align-items:center;justify-content:center;color:#555;font-weight:600;}

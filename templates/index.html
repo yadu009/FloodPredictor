@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge-AI Flood Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <header>
+        <h1>🌊 Edge-AI Flood Forecasting System</h1>
+    </header>
+
+    <main class="container">
+        <section class="sidebar">
+            <h2>Simulation Controls</h2>
+
+            <div id="inputs">
+                <label>Rainfall (mm)</label><input type="number" id="rainfall">
+                <label>River Discharge (cumec)</label><input type="number" id="river_discharge">
+                <label>Water Level (m)</label><input type="number" id="water_level">
+                <label>Soil Moisture (%)</label><input type="number" id="soil_moisture">
+                <label>Temperature (°C)</label><input type="number" id="temperature">
+                <label>Humidity (%)</label><input type="number" id="humidity">
+                <label>Wind Speed (m/s)</label><input type="number" id="wind_speed">
+                <label>Pressure (hPa)</label><input type="number" id="pressure">
+                <label>Elevation (m)</label><input type="number" id="elevation">
+                <label>Population Density</label><input type="number" id="population_density">
+                <label>Drainage Efficiency</label><input type="number" id="drainage_efficiency">
+                <label>Distance to Coast (km)</label><input type="number" id="distance_to_coast">
+                <label>Deforestation Index</label><input type="number" id="deforestation_index">
+            </div>
+
+            <div class="buttons">
+                <button id="fetch-data-button" disabled>Fetch Data</button>
+                <button id="run-simulation-button" disabled>Run Simulation</button>
+            </div>
+
+            <div class="results">
+                <h3>Flood Risk: <span id="flood-risk-value">N/A</span></h3>
+                <p>Status: <span id="sim-status">Idle</span></p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Edge-AI Flood Forecasting | Powered by Machine Learning
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
