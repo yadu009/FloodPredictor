@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Data - Flood Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='historical.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts" >Alerts</a></li>
+            <li><a href="/historical" class="active">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="historical-container">
+        <!-- Left Panel: Filters -->
+        <div class="filters-panel">
+            <h2>Filter Historical Data</h2>
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+
+            <label for="parameter">Parameter:</label>
+            <select id="parameter">
+                <option value="rainfall">Rainfall (mm)</option>
+                <option value="river_discharge">River Discharge (cumec)</option>
+                <option value="water_level">Water Level (m)</option>
+                <option value="soil_moisture">Soil Moisture (%)</option>
+                <option value="temperature">Temperature (°C)</option>
+                <option value="humidity">Humidity (%)</option>
+                <option value="wind_speed">Wind Speed (m/s)</option>
+                <option value="pressure">Pressure (hPa)</option>
+            </select>
+
+            <button id="apply-btn">Apply</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+
+        <!-- Right Panel: Visualization -->
+        <div class="visualization-panel">
+            <h2>Historical Trends</h2>
+            <canvas id="historicalChart"></canvas>
+
+            <div class="summary-stats">
+                <div class="stat-card">
+                    <h3>Average</h3>
+                    <p id="avg-value">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Maximum</h3>
+                    <p id="max-value">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Minimum</h3>
+                    <p id="min-value">-</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Flood Forecast System | Designed for Resilience
+    </footer>
+
+    <script src="{{ url_for('static', filename='historical.js') }}"></script>
+</body>
+</html>

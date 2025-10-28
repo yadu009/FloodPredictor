@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Flood Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <aside class="controls-panel">
+            <h3>Region Filters</h3>
+            <label for="riskLevel">Risk Level:</label>
+            <select id="riskLevel">
+                <option value="all">All</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button id="applyFilter">Apply Filter</button>
+        </aside>
+
+        <section class="main-dashboard">
+            <div class="metrics-cards">
+                <div class="card">
+                    <i class="fa-solid fa-cloud-showers-heavy"></i>
+                    <h4>Rainfall</h4>
+                    <span id="rainfallMetric">-- mm</span>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-water"></i>
+                    <h4>Water Level</h4>
+                    <span id="waterLevelMetric">-- m</span>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-users"></i>
+                    <h4>Population Density</h4>
+                    <span id="popDensityMetric">--</span>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <h4>Flood Risk Index</h4>
+                    <span id="floodRiskMetric">--</span>
+                </div>
+            </div>
+
+            <div class="map-charts">
+                <div id="map" style="height: 400px;"></div>
+                <div class="charts-container">
+                    <canvas id="rainfallChart"></canvas>
+                    <canvas id="waterLevelChart"></canvas>
+                    <canvas id="soilMoistureChart"></canvas>
+                </div>
+            </div>
+
+            <div class="alerts-container">
+                <h3>Recent Alerts</h3>
+                <ul id="alertsList"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

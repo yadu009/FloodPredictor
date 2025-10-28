@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge-AI Flood Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation" class="active">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+    <main class="container">
+        <section class="sidebar">
+            <h2>Simulation Controls</h2>
+
+            <div id="inputs">
+                <label>Rainfall (mm)</label><input type="number" id="rainfall" step="0.1" value="5.0">
+                <label>River Discharge (cumec)</label><input type="number" id="river_discharge" step="0.1" value="20.0">
+                <label>Water Level (m)</label><input type="number" id="water_level" step="0.1" value="1.2">
+                <label>Soil Moisture (%)</label><input type="number" id="soil_moisture" step="0.1" value="40.0">
+                <label>Temperature (°C)</label><input type="number" id="temperature" step="0.1" value="30.0">
+                <label>Humidity (%)</label><input type="number" id="humidity" step="0.1" value="60.0">
+                <label>Wind Speed (m/s)</label><input type="number" id="wind_speed" step="0.1" value="5.0">
+                <label>Pressure (hPa)</label><input type="number" id="pressure" step="0.1" value="1012.0">
+                <label>Elevation (m)</label><input type="number" id="elevation" step="0.1" value="800.0">
+                <label>Population Density</label><input type="number" id="population_density" step="0.1" value="300.0">
+                <label>Drainage Efficiency</label><input type="number" id="drainage_efficiency" step="0.1" value="0.7">
+                <label>Distance to Coast (km)</label><input type="number" id="distance_to_coast" step="0.1" value="600.0">
+                <label>Deforestation Index</label><input type="number" id="deforestation_index" step="0.1" value="0.2">
+            </div>
+
+            <div class="buttons">
+                <button id="fetch-data-button">Fetch Data</button>
+                <button id="run-simulation-button">Run Simulation</button>
+            </div>
+
+            <div class="results">
+                <h3>Flood Risk: <span id="flood-risk-value">N/A</span></h3>
+                <p>Status: <span id="sim-status">Idle</span></p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+
+        <!-- Result Popup -->
+        <div class="popup" id="resultPopup" style="display: none;">
+            <h2>Prediction Result</h2>
+            <div id="resultContent"></div>
+            <button onclick="document.getElementById('resultPopup').style.display='none'">Close</button>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Edge-AI Flood Forecasting | Powered by Machine Learning
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        // Fetch Data Button - Placeholder for Fetch Logic
+        document.getElementById('fetch-data-button').addEventListener('click', function() {
+            // Simulate fetching data from an API or a source
+            alert('Fetching data...');
+            // Optionally, you can call another API to fetch data dynamically if needed
+        });
+
+        // Run Simulation Button - Trigger API call and show results
+        document.getElementById('run-simulation-button').addEventListener('click', function() {
+            const data = {
+                rainfall_mm: parseFloat(document.getElementById('rainfall').value),
+                river_discharge_cumec: parseFloat(document.getElementById('river_discharge').value),
+                water_level_m: parseFloat(document.getElementById('water_level').value),
+                soil_moisture_percent: parseFloat(document.getElementById('soil_moisture').value),
+                temperature_c: parseFloat(document.getElementById('temperature').value),
+                humidity_percent: parseFloat(document.getElementById('humidity').value),
+                wind_speed_ms: parseFloat(document.getElementById('wind_speed').value),
+                pressure_hpa: parseFloat(document.getElementById('pressure').value),
+                elevation_m: parseFloat(document.getElementById('elevation').value),
+                population_density: parseFloat(document.getElementById('population_density').value),
+                drainage_efficiency: parseFloat(document.getElementById('drainage_efficiency').value),
+                distance_to_coast_km: parseFloat(document.getElementById('distance_to_coast').value),
+                deforestation_index: parseFloat(document.getElementById('deforestation_index').value)
+            };
+
+            // Replace this URL with your actual API endpoint
+            const apiUrl = 'http://127.0.0.1:5000/predict';
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                const content = `
+                    <p><strong>Prediction:</strong> ${result.prediction}</p>
+                    <p><strong>Probability:</strong> ${(result.probability * 100).toFixed(1)}%</p>
+                    <p><strong>Risk Level:</strong> ${result.risk_level}</p>
+                    <p><strong>Recommendation:</strong> ${result.recommendation}</p>
+                    <p><strong>Timestamp:</strong> ${result.timestamp}</p>
+                `;
+                document.getElementById('resultContent').innerHTML = content;
+                document.getElementById('resultPopup').style.display = 'block';
+            })
+            .catch(err => {
+                alert('Error: ' + err.message);
+            });
+        });
+    </script>
+</body>
+</html>

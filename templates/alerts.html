@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Flood Risk Alerts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts" class="active">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Alerts Dashboard -->
+    <section class="alerts-section">
+        <div class="alerts-container">
+            <!-- Left Column -->
+            <div class="alerts-left">
+                <h2 class="section-title">🚨 Live Flood Risk Alerts</h2>
+                <div class="filters">
+                    <input type="text" id="searchRegion" placeholder="🔍 Search region..." />
+                    <select id="filterRisk">
+                        <option value="All">All Levels</option>
+                        <option value="High">High</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div id="alerts-list" class="alerts-list">
+                    <p>Fetching live alerts...</p>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="alerts-right">
+    <div class="map-card">
+        <h2>🗺️ Real-Time Flood Map</h2>
+        <div id="floodMap" class="map-container"></div>
+    </div>
+
+    <div class="chart-card">
+        <h2>📊 Alert Trend Overview</h2>
+        <canvas id="alertChart"></canvas>
+    </div>
+</div>
+
+                <div class="chart-card">
+                    <h2>📊 Alert Trend Overview</h2>
+                    <canvas id="alertChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Flood Forecast System | Designed for Resilience</p>
+    </footer>
+
+    <script defer src="{{ url_for('static', filename='alerts.js') }}"></script>
+</body>
+</html>

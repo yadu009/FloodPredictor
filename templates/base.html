@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts" class="active">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="page-content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        © 2025 Edge-AI Flood Forecasting | All Rights Reserved
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

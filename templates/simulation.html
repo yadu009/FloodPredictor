@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Flood Simulation Dashboard</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='simulation.css') }}">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+ <header>
+  <nav class="navbar">
+    <div class="logo">🌊 Flood Forecast</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/simulation" class="active">Simulation</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/alerts">Alerts</a></li>
+      <li><a href="/historical">Historical</a></li>
+      <li><a href="/resources">Resources</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+ </header>
+
+ <main>
+  <section class="controls">
+   <h2>Simulation Controls</h2>
+
+   <div class="preset-buttons">
+    <button id="normalBtn">Normal Day</button>
+    <button id="monsoonBtn">Monsoon</button>
+    <button id="floodBtn">Flood Warning</button>
+   </div>
+
+   <div id="parameter-groups">
+    <div class="group">
+     <h3>🌦 Weather Parameters</h3>
+     <div id="weatherParams"></div>
+    </div>
+
+    <div class="group">
+     <h3>🌊 Hydrology Parameters</h3>
+     <div id="hydrologyParams"></div>
+    </div>
+
+    <div class="group">
+     <h3>🌍 Geographical & Human Factors</h3>
+     <div id="geoParams"></div>
+    </div>
+   </div>
+
+   <div class="action-buttons">
+    <button id="runSim">Run Simulation</button>
+    <button id="resetSim">Reset</button>
+   </div>
+  </section>
+
+  <section class="visualization">
+   <div id="map"></div>
+
+   <div class="results">
+    <canvas id="paramChart"></canvas>
+
+    <div class="gauge-box">
+     <h3>Predicted Flood Risk</h3>
+          <p>Status: <span id="sim-status">Idle</span></p>      <div id="gauge">
+      <span id="riskValue">0%</span>
+     </div>
+    </div>
+
+    <div class="metrics">
+     <h3>Key Metrics</h3>
+     <ul id="metricsList">
+      <li>Flood Category: <span id="riskCategory">N/A</span></li>
+      <li>Prediction: <span id="prediction">N/A</span></li>
+      <li>Recommendation: <span id="recommendation">N/A</span></li>             <li>Estimated Duration: <span id="duration">N/A</span></li>
+      <li>Population Affected: <span id="population">N/A</span></li>
+     </ul>
+    </div>
+   </div>
+  </section>
+ </main>
+
+ <footer>
+  <p>© 2025 Flood Forecasting AI | Simulation Module</p>
+ </footer>
+
+ <script src="{{ url_for('static', filename='simulation.js') }}"></script>
+</body>
+</html>

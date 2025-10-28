@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Flood Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resources.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources" class="active">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="resources-container">
+        <h1>Flood Forecast Resources</h1>
+        <p>Access reports, datasets, guides, and external resources to help with flood analysis and preparedness.</p>
+
+        <div class="resources-grid" id="resources-grid">
+            <!-- Cards will be added dynamically via JS -->
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Flood Forecast System | Designed for Resilience
+    </footer>
+
+    <script src="{{ url_for('static', filename='resources.js') }}"></script>
+</body>
+</html>

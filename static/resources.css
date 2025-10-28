@@ -1,0 +1,121 @@
+/* Body & Fonts */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #eaf2f8;
+    color: #333;
+}
+
+/* Header
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+} */
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    background-color: #0b59d1;
+}
+
+/* Main Content */
+.resources-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.resources-container h1 {
+    font-size: 2.2rem;
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+.resources-container p {
+    margin-bottom: 25px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Resource Card */
+.resource-card {
+    background: linear-gradient(to bottom right, #ffffff, #f0f4f9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.resource-card h3 {
+    margin-top: 0;
+    color: #1a73e8;
+}
+
+.resource-card p {
+    font-size: 0.95rem;
+    margin: 10px 0 15px 0;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #1a73e8;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #0b59d1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1a73e8;
+    color: white;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}

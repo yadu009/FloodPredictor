@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | Flood Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='alerts.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+        <div class="logo">🌊 Flood Forecast</div>
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/simulation">Simulation</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/historical">Historical</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main class="admin-container">
+        <!-- Map Section -->
+        <div class="map-section">
+            <h3>Live Flood Map</h3>
+            <div id="admin-map" class="map"></div>
+        </div>
+
+        <!-- Live Alerts Panel -->
+        <div class="live-alerts-container">
+            <h3>Live Alerts</h3>
+            <ul id="live-alerts-list"></ul>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="analytics-section">
+            <div class="metric-card">
+                <h4>Total Alerts</h4>
+                <p id="total-alerts">0</p>
+            </div>
+            <div class="metric-card">
+                <h4>High Risk Alerts</h4>
+                <p id="high-risk-alerts">0</p>
+            </div>
+            <div class="metric-card">
+                <h4>Moderate Risk Alerts</h4>
+                <p id="moderate-risk-alerts">0</p>
+            </div>
+            <div class="metric-card">
+                <h4>Low Risk Alerts</h4>
+                <p id="low-risk-alerts">0</p>
+            </div>
+
+            <!-- Trend Chart -->
+            <div class="chart-container">
+                <canvas id="alertTrendChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Flood Forecast System | Designed for Resilience</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>
